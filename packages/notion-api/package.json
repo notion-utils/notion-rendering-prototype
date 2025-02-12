@@ -1,0 +1,17 @@
+{
+  "name": "notion-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx index.ts"
+  },
+  "keywords": [],
+  "author": "seongbin",
+  "license": "ISC",
+  "dependencies": {
+    "tsx": "^4.19.2",
+    "@notionhq/client": "^2.2.15"
+  }
+}
