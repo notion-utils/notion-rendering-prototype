@@ -6,5 +6,8 @@
   "scripts": {},
   "keywords": [],
   "author": "seongbin",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.5.0"
+  }
 }
