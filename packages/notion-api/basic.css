@@ -25,6 +25,7 @@ p {
 /****************************
  * Link Mention
  ****************************/
+.inline-link-mention,
 .inline-link-mention:hover,
 .inline-link-mention:focus,
 .inline-link-mention:active {
