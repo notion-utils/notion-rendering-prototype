@@ -31,7 +31,7 @@ async function main() {
         <head>
           <link rel="stylesheet" href="../prism/prism.css" />
           <script src="../prism/prism.js"></script>
-          <link rel="stylesheet" href="./basic.css" />
+          <link rel="stylesheet" href="../basic.css" />
         </head>
         <body>
         ${renderBlocks(blockTree)}

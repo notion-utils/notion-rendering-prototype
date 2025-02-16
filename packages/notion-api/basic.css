@@ -1,0 +1,193 @@
+/* width 100% 이면 보기 힘들어서 임시로 추가 */
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 16px;
+}
+
+/****************************
+ * Normalize
+ ****************************/
+ul,
+ol {
+  margin: 1em 0 1em 1.5em;
+  padding: 0;
+}
+li {
+  margin: 4px 0;
+}
+
+p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/****************************
+ * Link Mention
+ ****************************/
+.inline-link-mention:hover,
+.inline-link-mention:focus,
+.inline-link-mention:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.inline-link-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.inline-link-mention {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.link-mention-provider {
+  color: #666;
+}
+
+.link-mention-text {
+  color: #333;
+  font-weight: 500;
+}
+
+/****************************
+ * Toggle
+ ****************************/
+.toggle {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+.toggle-title {
+  font-weight: bold;
+  cursor: pointer; /* 실제로 접고 펼치려면 JS로 처리, 여기는 표시만 */
+  margin-bottom: 4px;
+}
+
+.toggle-children {
+  margin-left: 16px; /* 한 단계 들여쓰기 */
+  display: block; /* 필요 시 숨김/펼침 로직은 JS에서 */
+}
+
+/****************************
+ * callout
+ ****************************/
+
+.callout {
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  padding: 8px 12px;
+  margin: 8px 0;
+  display: flex; /* 아이콘과 내용 나란히 배치 */
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.callout-default {
+  border-left-color: #ccc;
+}
+.callout-blue {
+  border-left-color: #0066ff;
+  background-color: #eef5ff;
+}
+
+.callout-icon {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.callout-content {
+  flex: 1;
+}
+
+/****************************
+ * column_list / column
+ ****************************/
+/* column-list: 여러 column이 가로 배치되도록 예시 */
+.column-list {
+  display: flex;
+  flex-wrap: wrap; /* 칼럼이 많으면 줄바꿈 */
+  gap: 16px;
+  margin: 8px 0;
+}
+
+/* 단일 column */
+.column {
+  flex: 1;
+  min-width: 200px; /* 너무 좁아지지 않도록 */
+  background: #fafafa;
+  padding: 8px;
+  border: 1px solid #eee;
+}
+
+/****************************
+ * code
+ ****************************/
+
+pre code {
+  background-color: #f5f2f0;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+  display: block;
+  overflow-x: auto; /* 가로 스크롤 */
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 14px;
+}
+
+/****************************
+ * Table
+ ****************************/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+}
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/****************************
+ * Figure/Image
+ ****************************/
+figure {
+  margin: 16px 0;
+  text-align: center;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+figure figcaption {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+/****************************
+ * Blockquote
+ ****************************/
+blockquote {
+  border-left: 4px solid #ccc;
+  margin: 8px 0;
+  padding: 0 16px;
+  color: #555;
+  font-style: italic;
+}
+
+/****************************
+ * Divider
+ ****************************/
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 16px 0;
+}
