@@ -109,7 +109,7 @@ function renderBlock(block: BlockObjectResponseWithChildren): string {
   switch (type) {
     case "paragraph": {
       const { rich_text } = block.paragraph;
-      return `<p>${renderRichText(rich_text)}</p>\n${childrenHTML}`;
+      return `<p>${renderRichText(rich_text)}${childrenHTML}</p>\n`;
     }
 
     case "heading_1":
@@ -118,7 +118,7 @@ function renderBlock(block: BlockObjectResponseWithChildren): string {
       const headingData = block[type];
       const content = renderRichText(headingData.rich_text);
       const tag = "h" + type.split("_")[1];
-      return `<${tag}>${content}</${tag}>\n${childrenHTML}`;
+      return `<${tag}>${content}${childrenHTML}</${tag}>\n`;
     }
 
     case "bulleted_list_item":
@@ -145,14 +145,14 @@ function renderBlock(block: BlockObjectResponseWithChildren): string {
         <div>
           <input type="checkbox" ${checked} onclick="return false;" />
           <label>${renderRichText(toDo.rich_text)}</label>
+          ${childrenHTML}
         </div>
-        ${childrenHTML}
       `;
     }
 
     case "toggle": {
       const toggle = block.toggle;
-      return `
+      toggle.return`
         <div class="toggle">
           <div class="toggle-title">${renderRichText(toggle.rich_text)}</div>
           <div class="toggle-children">${childrenHTML}</div>
