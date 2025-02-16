@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
-import { ExtendedBlockObjectResponse } from "./types";
+import { BlockObjectResponseWithChildren } from "./types";
 import { NOTION_API_KEY } from "./notion_api_key";
 
 function removePropertiesRecursively(
@@ -38,8 +38,8 @@ const notion = new Client({ auth: NOTION_API_KEY });
  */
 export async function fetchBlocksRecursively(
   blockId: string,
-): Promise<ExtendedBlockObjectResponse[]> {
-  const allBlocks: ExtendedBlockObjectResponse[] = [];
+): Promise<BlockObjectResponseWithChildren[]> {
+  const allBlocks: BlockObjectResponseWithChildren[] = [];
 
   let cursor: string | undefined = undefined;
   while (true) {
@@ -49,7 +49,7 @@ export async function fetchBlocksRecursively(
         start_cursor: cursor,
       });
 
-    const blockResults = response.results as ExtendedBlockObjectResponse[];
+    const blockResults = response.results as BlockObjectResponseWithChildren[];
 
     // 각 블록을 순회하면서, has_children = true이면 또 재귀적으로 children을 fetch
     for (const block of blockResults) {
@@ -76,7 +76,7 @@ export async function fetchBlocksRecursively(
  */
 export async function fetchPageBlocksRecursively(
   pageId: string,
-): Promise<ExtendedBlockObjectResponse[]> {
+): Promise<BlockObjectResponseWithChildren[]> {
   const rawBlocks = fetchBlocksRecursively(pageId);
 
   removePropertiesRecursively(
