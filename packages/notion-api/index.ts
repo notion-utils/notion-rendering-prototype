@@ -5,17 +5,24 @@ import fs from "fs";
 
 const notionPageId = "18453cfa-96ad-80dd-8e50-d465ac1af643";
 
+const API_RESPONSE_JSON_PATH = "./output/api-raw.json";
+
 async function main() {
   try {
     // FIXME: 큰 페이지가 아닌데도 fetch가 꽤 오래 걸린다. 13~18초 가량
-    // 어차피 매번 똑같은데, 캐싱해서 쓰자.
-    console.time("fetch");
-    const blockTree = await fetchPageBlocksRecursively(notionPageId);
-    console.timeEnd("fetch");
+    if (!fs.existsSync(API_RESPONSE_JSON_PATH)) {
+      console.time("fetch");
+      const blockTree = await fetchPageBlocksRecursively(notionPageId);
+      console.timeEnd("fetch");
 
-    fs.writeFileSync(
-      "./output/api-raw.json",
-      JSON.stringify(blockTree, null, 2),
+      fs.writeFileSync(
+        API_RESPONSE_JSON_PATH,
+        JSON.stringify(blockTree, null, 2),
+      );
+    }
+
+    const blockTree = JSON.parse(
+      fs.readFileSync(API_RESPONSE_JSON_PATH).toString(),
     );
 
     const html = `
