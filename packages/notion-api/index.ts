@@ -1,5 +1,5 @@
 // index.ts
-import { fetchPageBlocksRecursively } from "./fetcher";
+import { fetchBlocksWithImages } from "./fetcher";
 import { renderBlocks } from "./renderer";
 import fs from "fs";
 
@@ -12,7 +12,7 @@ async function main() {
     // FIXME: 큰 페이지가 아닌데도 fetch가 꽤 오래 걸린다. 13~18초 가량
     if (!fs.existsSync(API_RESPONSE_JSON_PATH)) {
       console.time("fetch");
-      const blockTree = await fetchPageBlocksRecursively(notionPageId);
+      const blockTree = await fetchBlocksWithImages(notionPageId);
       console.timeEnd("fetch");
 
       fs.writeFileSync(
