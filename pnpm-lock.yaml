@@ -6,13 +6,17 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      prettier:
+        specifier: ^3.5.0
+        version: 3.5.2
 
   packages/notion-api:
     dependencies:
       '@notionhq/client':
-        specifier: ^2.2.15
-        version: 2.2.15
+        specifier: ^2.2.16
+        version: 2.2.16
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -163,8 +167,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@notionhq/client@2.2.15':
-    resolution: {integrity: sha512-XhdSY/4B1D34tSco/GION+23GMjaS9S2zszcqYkMHo8RcWInymF6L1x+Gk7EmHdrSxNFva2WM8orhC4BwQCwgw==}
+  '@notionhq/client@2.2.16':
+    resolution: {integrity: sha512-3GlkfhLw8+Jw8U2iFEmHA6WfCgYhZCXLxgPdqDJkYMFotELNpQO+yGSy2QWURsG8ndu21sLt+FEOfDbNcCtFMg==}
     engines: {node: '>=12'}
 
   '@types/node-fetch@2.6.12':
@@ -217,6 +221,11 @@ packages:
     peerDependenciesMeta:
       encoding:
         optional: true
+
+  prettier@3.5.2:
+    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
@@ -312,7 +321,7 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@notionhq/client@2.2.15':
+  '@notionhq/client@2.2.16':
     dependencies:
       '@types/node-fetch': 2.6.12
       node-fetch: 2.7.0
@@ -385,6 +394,8 @@ snapshots:
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
+
+  prettier@3.5.2: {}
 
   resolve-pkg-maps@1.0.0: {}
 

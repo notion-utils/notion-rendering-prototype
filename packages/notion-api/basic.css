@@ -67,25 +67,24 @@ p {
 
 .toggle-title {
   font-weight: bold;
-  cursor: pointer; /* 실제로 접고 펼치려면 JS로 처리, 여기는 표시만 */
+  cursor: pointer;
   margin-bottom: 4px;
 }
 
 .toggle-children {
-  margin-left: 16px; /* 한 단계 들여쓰기 */
-  display: block; /* 필요 시 숨김/펼침 로직은 JS에서 */
+  margin-left: 16px;
+  display: block;
 }
 
 /****************************
  * callout
  ****************************/
-
 .callout {
   border-radius: 8px;
   background-color: #f7f7f7;
   padding: 8px 12px;
   margin: 8px 0;
-  display: flex; /* 아이콘과 내용 나란히 배치 */
+  display: flex;
   gap: 8px;
   align-items: flex-start;
 }
@@ -110,18 +109,16 @@ p {
 /****************************
  * column_list / column
  ****************************/
-/* column-list: 여러 column이 가로 배치되도록 예시 */
 .column-list {
   display: flex;
-  flex-wrap: wrap; /* 칼럼이 많으면 줄바꿈 */
+  flex-wrap: wrap;
   gap: 16px;
   margin: 8px 0;
 }
 
-/* 단일 column */
 .column {
   flex: 1;
-  min-width: 200px; /* 너무 좁아지지 않도록 */
+  min-width: 200px;
   background: #fafafa;
   padding: 8px;
   border: 1px solid #eee;
@@ -130,14 +127,13 @@ p {
 /****************************
  * code
  ****************************/
-
 pre code {
   background-color: #f5f2f0;
   color: #333;
   padding: 8px;
   border-radius: 4px;
   display: block;
-  overflow-x: auto; /* 가로 스크롤 */
+  overflow-x: auto;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 14px;
 }
@@ -191,4 +187,100 @@ hr {
   border: none;
   border-top: 1px solid #ddd;
   margin: 16px 0;
+}
+
+/* 목차 스타일 */
+.table-of-contents {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.toc-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #37352f;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin: 0.5rem 0;
+  transition: all 0.2s;
+}
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  color: #37352f;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toc-link:hover {
+  color: #2382e2;
+}
+
+/* 헤딩 레벨별 들여쓰기 */
+.toc-level-1 {
+  font-weight: 600;
+}
+
+.toc-level-2 {
+  padding-left: 1.2rem;
+}
+
+.toc-level-3 {
+  padding-left: 2.4rem;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+/* 색상 변형 */
+.color-default .toc {
+  color: #37352f;
+}
+
+.color-blue .toc {
+  color: #0b6bcb;
+}
+
+.color-red .toc {
+  color: #eb5757;
+}
+
+.color-yellow .toc {
+  color: #f2c94c;
+}
+
+.color-green .toc {
+  color: #219653;
+}
+
+/* 빈 목차 표시 */
+.toc-empty {
+  color: #888;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+/* toc 클래스 추가 (renderer.ts에서 사용) */
+.toc {
+  width: 100%;
+}
+
+/* toc-text 클래스 추가 (renderer.ts에서 사용) */
+.toc-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
